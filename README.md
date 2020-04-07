@@ -1,24 +1,13 @@
-# README
+# Project Pencatatan Keuangan Vihara
+Web Application that could save transaction details that happened in Vihara
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Requirements
+* Ruby 2.6.5
+* Rails 6.0.2.2
+* PostgreSQL 11.3
+* Latest NodeJS 
+* Latest Yarn
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Support
+* [Rails Documentation](https://guides.rubyonrails.org/)
+* [Ruby Documentation](https://ruby-doc.org/)
