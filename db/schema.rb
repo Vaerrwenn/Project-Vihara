@@ -10,27 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_09_085117) do
+ActiveRecord::Schema.define(version: 2020_04_13_101915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "currencies", force: :cascade do |t|
-    t.string "currency_cd", limit: 3
-    t.string "currency_name"
+  create_table "deposits", force: :cascade do |t|
+    t.string "receipt_no"
+    t.string "type"
+    t.string "currency", limit: 4
+    t.decimal "value", precision: 16, scale: 2
+    t.string "desc"
+    t.string "submitted_by"
+    t.bigint "member_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id"], name: "index_deposits_on_member_id"
   end
 
-  create_table "deposits", force: :cascade do |t|
+  create_table "members", force: :cascade do |t|
     t.string "name"
     t.string "cetya"
-    t.string "receipt_no"
-    t.string "currency_cd", limit: 3
-    t.decimal "value", precision: 16, scale: 2
-    t.string "submitted_by"
+    t.string "phone", limit: 20
+    t.decimal "total", precision: 14, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "deposits", "members"
 end

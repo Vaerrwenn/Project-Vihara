@@ -1,0 +1,18 @@
+<%= simple_form_for @member, defaults: { wrapper_html: { class: 'row' } } do |f| %>
+    <%= f.input :name, label: 'Nama', error: "Nama harus diisi dan lebih dari 2 karakter!" %>
+    <%= f.input :cetya, label: 'Cetya', error: "Cetya harus diisi!", as: :select, 
+    collection:[['Harmonis', 'Harmonis'], ['Makmur', 'Makmur'], ['Mandiri', 'Mandiri'], 
+    ['Persatuan', 'Persatuan'], ['Sayang', 'Sayang'], ['Sehati', 'Sehati'], ['Sungguh Hati', 'Sungguh Hati']] %>
+    <%= f.input :phone, label: 'Nomor HP:', input_html: { onkeydown: "phoneNumCheck(event)" } %>
+    <%= f.button :submit, 'Simpan', class: 'btn btn-primary row' %>
+<% end %>
+<script>
+    function phoneNumCheck(e) {
+        // console.log("I'm running!")
+        var input = e.key
+        var regex = /([^\d+])/
+        if (regex.test(input) && e.which != 8) {
+            e.preventDefault()
+        }
+    }
+</script>

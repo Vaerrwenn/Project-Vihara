@@ -1,7 +1,9 @@
+// Use this colour palette https://colorhunt.co/palette/149559
+
 body{
     font-family: Arial, Helvetica, sans-serif;
     background-color: #313131;
-    color: rgb(204, 204, 204);
+    color: rgb(224, 224, 224);
  }
 
 ul li a.nav-link{
@@ -19,3 +21,42 @@ ul li a.nav-link{
 .row{
    margin-top: 10px;
  }
+
+ .formtitle{
+    border-bottom: solid thin;
+    border-color: white;
+ }
+
+ input[type=text]{
+    border: black;
+    background-color: #525252;
+    color: white;
+ }
+
+ input[type=text]:focus{
+   border: black;
+   background-color: #525252;
+   color: white;
+}
+
+input[type=tel]{
+   border: black;
+   background-color: #525252;
+   color: white;
+}
+
+input[type=tel]:focus{
+  border: black;
+  background-color: #525252;
+  color: white;
+}
+
+#member_cetya{
+   border: black;
+   background-color: #525252;
+   color: white;
+}
+
+.invalid-feedback{
+   color: #e7515b;
+}
