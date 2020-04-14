@@ -6,4 +6,32 @@
         <i class="fas fa-plus"></i> Tambah Data Umat
     <% end %>
 </div>
+<div class="row">
+ <table class="table table-sm table-custom table-bordered">
+    <thead class="thead">
+        <tr>
+            <th scope="col text-center" style="width: 2%">No.</th>
+            <th scope="col" style="width: 43%">Nama</th>
+            <th scope="col" style="width: 25%">Cetya</th>
+            <th scope="col" style="width: 30%">Tanggal Transaksi Terakhir</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if @members_result == "blank" %>
+        <tr>
+            <td colspan="4">Data umat tidak ditemukan.</td>
+        </tr>
+        <% else %>
+            <% @members.each do |m| %>
+                <tr>
+                    <td></td>
+                    <td><%= link_to member_path(m) do %><b><%= m.name %></b><% end %></td>
+                    <td><%= m.cetya %></td>
+                    <td></td>
+                </tr>
+            <% end %>
+        <% end %>
+    </tbody>
+ </table>
+</div>
 

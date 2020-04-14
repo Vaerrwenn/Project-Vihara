@@ -27,6 +27,44 @@ ul li a.nav-link{
     border-color: white;
  }
 
+ .table-custom{
+    color: rgb(224, 224, 224);
+ }
+
+ .table-custom thead{
+   background-color: #313131;
+ }
+
+ .table-custom tbody{
+    background-color: #414141;
+ }
+
+ .table-bordered{
+    border-color: rgb(119, 119, 119);
+ }
+
+ .table-bordered > thead > tr > th{
+   border-color: rgb(119, 119, 119);
+ }
+
+ .table-bordered > tbody > tr > td{
+   border-color: rgb(119, 119, 119);
+}
+
+ a {
+    color: #e0e0e0;
+ }
+
+ a:hover{
+   color: #c5c5c5;
+ }
+
+ #namaUmat{
+   border-bottom: solid thin;
+   border-color: white;
+   color: white;
+ }
+
  input[type=text]{
     border: black;
     background-color: #525252;

@@ -1,0 +1,38 @@
+<%= render 'layouts/header' %>
+<div class="container">
+    <div class="row" id="namaUmat">
+        <div class="col-8">
+            <h3><%= @member.name %></h3>
+        </div>
+        <div class="col-4 text-right align-bottom">
+            <%= link_to "Ubah data Umat", edit_member_path, style: "position: relative; top: 25%; padding-right: 20px;" %>
+            <%= link_to  "Hapus data Umat", member_path, 
+                style: "position: relative; top: 25%; border-left: 1px solid white; color: #ca3e47; padding-left: 20px;", method: :delete, 
+                data: { confirm: 'Are you sure?'} %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            Cetya
+        </div> 
+        <div class="col-10">
+            : <%= @member.cetya %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            Nomor HP
+        </div>
+        <div class="col-10">
+            : <%= @member.phone %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2" style="color: white;">
+            <b>Total Uang Tersedia</b>
+        </div>
+        <div class="col-10">
+            <b>: <%= @member.total %></b>
+        </div>
+    </div>
+</div>
