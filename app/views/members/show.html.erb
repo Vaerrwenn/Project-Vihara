@@ -28,11 +28,19 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-2" style="color: white;">
-            <b>Total Uang Tersedia</b>
+        <div class="col">
+            <strong>Data Deposito:</strong>
         </div>
-        <div class="col-10">
-            <b>: <%= @member.total %></b>
+        <div class="col">
+            <strong>Data Penarikan:</strong>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <%= link_to "Tambah Data Deposit", new_member_deposit_path(@member), class: "btn btn-sm btn-primary" %>
+        </div>
+        <div class="col">
+            a
         </div>
     </div>
 </div>

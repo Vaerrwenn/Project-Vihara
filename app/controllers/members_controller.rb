@@ -19,8 +19,10 @@ class MembersController < ApplicationController
       @member = Member.new(member_params)
 
       if @member.save
+        flash[:success] = "Data saved!"
         redirect_to @member
       else
+        flash[:error] = "Something went wrong"
         render 'new'
       end
     end
@@ -32,7 +34,7 @@ class MembersController < ApplicationController
     def update
       @member = Member.find(params[:id])
         if @member.update_attributes(member_params)
-          flash[:success] = "Member was successfully updated"
+          flash[:success] = "Data was successfully updated!"
           redirect_to @member
         else
           flash[:error] = "Something went wrong"
@@ -43,7 +45,7 @@ class MembersController < ApplicationController
     def destroy
       @member = Member.find(params[:id])
       if @member.destroy
-        flash[:success] = 'Member was successfully deleted.'
+        flash[:success] = 'Data was successfully deleted.'
         redirect_to members_url
       else
         flash[:error] = 'Something went wrong'
