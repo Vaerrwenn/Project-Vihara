@@ -3,7 +3,7 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
     background-color: #313131;
-    color: rgb(224, 224, 224);
+    color: #e0e0e0;
  }
 
 ul li a.nav-link{
@@ -97,4 +97,45 @@ input[type=tel]:focus{
 
 .invalid-feedback{
    color: #e7515b;
+}
+
+#indexTable{
+   display: block;
+   height: 70%;
+   overflow-y: scroll;
+}
+
+.modal-content{
+   background-color: #313131;
+   color: #e0e0e0 !important;
+}
+
+select.select{
+   border: black;
+   background-color: #525252;
+   color: white;
+}
+
+select.select:focus{
+   border: black;
+   background-color: #525252;
+   color: white;
+}
+
+select option{
+   border: black;
+   background-color: #525252;
+   color: white;
+}
+
+input[type=number]{
+   border: black;
+   background-color: #525252;
+   color: white;
+}
+
+input[type=number]:focus{
+  border: black;
+  background-color: #525252;
+  color: white;
 }

@@ -1,0 +1,37 @@
+<%= simple_form_for [@member, @member.deposits.build] do |f| %>
+<div class="modal-body">
+    <%= f.input :receipt_no, label: 'Nomor Kwitansi', error: 'Nomor Kwitansi harus diisi!' %>
+    <%= f.input :type, label: 'Jenis Pembayaran', error: "Jenis Pembayaran harus dipilih!", as: :select,
+    collection: [['Tabungan Kegiatan', 'Tabungan Kegiatan'], ['Tabungan Tozan', 'Tabungan Tozan']] %>
+    <%= f.input :currency, label: 'Mata Uang', error: "Mata Uang harus dipilih!", as: :select,
+    collection: [['IDR', 'IDR'], ['USD', 'USD'], ['JPY', 'JPY'], ['SGD', 'SGD'],
+    ['Lainnya (Diberitahu di Deskripsi)', 'Lainnya (Diberitahu di Deskripsi)']], 
+    input_html: { style: "width = 20%;" } %>
+    <%= f.input :value, label: 'Jumlah', error: "Jumlah harus diisi!",
+    input_html: { onkeydown: "phoneNumCheck(event)"} %>
+    <%= f.input :desc, label: 'Deskripsi' %>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+    <%= f.button :submit, "Simpan", class: "btn btn-primary" %>
+</div>
+<% end %>
+
+<script>
+    function phoneNumCheck(e) {
+        var input = e.key
+        var regex = /([^\d+])/
+        if (regex.test(input) && e.which != 8) {
+            e.preventDefault()
+        }
+    };
+
+    var jumlahUang = document.getElementById("deposit_value");
+    jumlahUang.addEventListener("onfocusout", function(){
+        var val = document.getElementById("deposit_value").value;
+        var nums = Intl.NumberFormat('id-ID').format(val);
+        console.log(nums);
+        console.log(j);
+    });
+    
+</script>

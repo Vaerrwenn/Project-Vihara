@@ -37,7 +37,10 @@
     </div>
     <div class="row">
         <div class="col">
-            <%= link_to "Tambah Data Deposit", new_member_deposit_path(@member), class: "btn btn-sm btn-primary" %>
+            <%= link_to "#newDepo", class: "btn btn-sm btn-primary", data: { toggle: "modal" } do %>
+                <i class="fas fa-plus"></i> Deposit
+            <% end %>
+            <%= render  "deposits/addDepositModal", deposit: @member.deposits.build %>
         </div>
         <div class="col">
             a
