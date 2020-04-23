@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_13_101915) do
+ActiveRecord::Schema.define(version: 2020_04_22_075925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "deposits", force: :cascade do |t|
     t.string "receipt_no"
-    t.string "type"
+    t.string "deposit_type"
     t.string "currency", limit: 4
     t.decimal "value", precision: 16, scale: 2
     t.string "desc"

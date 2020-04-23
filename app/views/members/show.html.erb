@@ -1,13 +1,17 @@
 <%= render 'layouts/header' %>
 <div class="container">
     <div class="row" id="namaUmat">
+        <% flash.each do |type, msg| %>
+            <div class="col-12 alert alert-<%= type %>" role="alert"><%= msg %></div>
+        <% end %>
         <div class="col-8">
             <h3><%= @member.name %></h3>
         </div>
         <div class="col-4 text-right align-bottom">
             <%= link_to "Ubah data Umat", edit_member_path, style: "position: relative; top: 25%; padding-right: 20px;" %>
             <%= link_to  "Hapus data Umat", member_path, 
-                style: "position: relative; top: 25%; border-left: 1px solid white; color: #ca3e47; padding-left: 20px;", method: :delete, 
+                style: "position: relative; top: 25%; border-left: 1px solid black; color: #ca3e47; padding-left: 20px;",
+                method: :delete, 
                 data: { confirm: 'Are you sure?'} %>
         </div>
     </div>
@@ -28,22 +32,39 @@
         </div>
     </div>
     <div class="row">
-        <div class="col">
-            <strong>Data Deposito:</strong>
-        </div>
-        <div class="col">
-            <strong>Data Penarikan:</strong>
-        </div>
+        <strong>Data Deposito:</strong>
     </div>
     <div class="row">
-        <div class="col">
-            <%= link_to "#newDepo", class: "btn btn-sm btn-primary", data: { toggle: "modal" } do %>
-                <i class="fas fa-plus"></i> Deposit
-            <% end %>
-            <%= render  "deposits/addDepositModal", deposit: @member.deposits.build %>
-        </div>
-        <div class="col">
-            a
-        </div>
+        <%= link_to new_member_deposit_path(@member), class: "btn btn-sm btn-primary", data: { toggle: "modal", target: "#newDepo" } do %>
+            <i class="fas fa-plus"></i> Deposit
+        <% end %>
+    </div>
+    <div class="row">
+        <table class="table table-sm table-custom table-bordered" id="depositTable">
+            <thead class="thead">
+                <tr>
+                    <th scope="col" style="width: 15%">Tanggal</th>
+                    <th scope="col" style="width: 15%">No. Kwitansi</th>
+                    <th scope="col" style="width: 15%">Jenis</th>
+                    <th scope="col" style="width: 20%">Jumlah</th>
+                    <th scope="col" style="width: 40%">Deskripsi</th>
+                    <th scope="col" style="width: 10%">Hapus</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if @member.deposits.exists? %>
+                    <%= render 'deposits/deposit' %>
+                <% else %>
+                    <tr>
+                        <td colspan="6">Tidak ada data.</td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+    </div>
+    <div class="row">
+
     </div>
 </div>
+<%= render  "deposits/addDepositModal", deposit: @member.deposits.build %>

@@ -1,14 +1,12 @@
 class MembersController < ApplicationController
     def index
-      @members = Member.all.order(:created_at)
+      @members = Member.all.order(:name)
 
-      if @members.blank?
-        @members_result = "Blank"
-      end
     end
 
     def show
       @member = Member.find(params[:id])
+      @deposit = @member.deposits.all.order(created_at: :desc)
     end
 
     def new
@@ -19,10 +17,9 @@ class MembersController < ApplicationController
       @member = Member.new(member_params)
 
       if @member.save
-        flash[:success] = "Data saved!"
         redirect_to @member
       else
-        flash[:error] = "Something went wrong"
+        flash[:danger] = "Data Umat tidak berhasil disimpan. Silahkan dicoba lagi."
         render 'new'
       end
     end
@@ -34,10 +31,10 @@ class MembersController < ApplicationController
     def update
       @member = Member.find(params[:id])
         if @member.update_attributes(member_params)
-          flash[:success] = "Data was successfully updated!"
+          flash[:success] = "Data umat berhasil diubah!"
           redirect_to @member
         else
-          flash[:error] = "Something went wrong"
+          flash[:error] = "Data umat tidak berhasil diubah. Silahkan dicoba lagi."
           render 'edit'
         end
     end

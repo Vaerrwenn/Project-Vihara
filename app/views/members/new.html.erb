@@ -1,7 +1,11 @@
 <%= render 'layouts/header' %>
 <div class="container">
+    <% flash.each do |type, msg| %>
+        <div class="row alert alert-<%= type %>" role="alert"><%= msg %></div>
+    <% end %>
     <div class="row formtitle">
         <h4>Tambah Data Umat</h4>
     </div>
+    
     <%= render 'form' %>
 </div>

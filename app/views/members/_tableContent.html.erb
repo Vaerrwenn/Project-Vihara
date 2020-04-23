@@ -17,7 +17,7 @@
         </tr>
     </thead>
     <tbody>
-        <% if @members_result == "blank" %>
+        <% if !@members.exists? %>
         <tr>
             <td colspan="4">Data umat tidak ditemukan.</td>
         </tr>
