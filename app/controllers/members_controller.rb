@@ -7,6 +7,7 @@ class MembersController < ApplicationController
     def show
       @member = Member.find(params[:id])
       @deposit = @member.deposits.all.order(created_at: :desc)
+      @withdraw = @member.withdraws.all.order(created_at: :desc)
     end
 
     def new

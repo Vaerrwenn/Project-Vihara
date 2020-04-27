@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_22_075925) do
+ActiveRecord::Schema.define(version: 2020_04_27_081045) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,5 +37,19 @@ ActiveRecord::Schema.define(version: 2020_04_22_075925) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "withdraws", force: :cascade do |t|
+    t.string "receipt_no"
+    t.string "withdrawal_type"
+    t.string "currency", limit: 4
+    t.decimal "value", precision: 16, scale: 2
+    t.string "desc"
+    t.string "submitted_by"
+    t.bigint "member_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["member_id"], name: "index_withdraws_on_member_id"
+  end
+
   add_foreign_key "deposits", "members"
+  add_foreign_key "withdraws", "members"
 end

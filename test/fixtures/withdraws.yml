@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  receipt_no: MyString
+  withdrawal_type: MyString
+  currency: MyString
+  value: 9.99
+  desc: MyString
+  submitted_by: MyString
+  member: one
+
+two:
+  receipt_no: MyString
+  withdrawal_type: MyString
+  currency: MyString
+  value: 9.99
+  desc: MyString
+  submitted_by: MyString
+  member: two

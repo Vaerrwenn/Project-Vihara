@@ -1,6 +1,4 @@
 // Use this colour palette https://colorhunt.co/palette/22272
-
-
 body{
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f9f7f7;
@@ -69,15 +67,22 @@ ul li a.nav-link{
 
 #indexTable{
    display: block;
-   height: 70%;
+   height: 430px;
    overflow-y: scroll;
 }
 
 #depositTable{
    display: block;
-   height: 30%;
+   height: 190px;
    overflow-y: scroll;
 }
+
+#withdrawTable{
+   display: block;
+   height: 190px;
+   overflow-y: scroll;
+}
+
 
 
 

@@ -10,25 +10,26 @@
  <table class="table table-sm table-custom table-bordered" id="indexTable">
     <thead class="thead">
         <tr>
-            <th scope="col text-center" style="width: 2%">No.</th>
-            <th scope="col" style="width: 43%">Nama</th>
-            <th scope="col" style="width: 25%">Cetya</th>
-            <th scope="col" style="width: 30%">Tanggal Transaksi Terakhir</th>
+            <th scope="col" style="width: 2%" class="text-center">No.</th>
+            <th scope="col" style="width: 40%">Nama</th>
+            <th scope="col" style="width: 40%">Cetya</th>
         </tr>
     </thead>
     <tbody>
+        <% counter = 0 %>
         <% if !@members.exists? %>
         <tr>
             <td colspan="4">Data umat tidak ditemukan.</td>
         </tr>
         <% else %>
+            <% counter = 1 %>
             <% @members.each do |m| %>
                 <tr>
-                    <td></td>
+                    <td class="text-center"><%= counter %></td>
                     <td><%= link_to member_path(m) do %><b><%= m.name %></b><% end %></td>
                     <td><%= m.cetya %></td>
-                    <td></td>
                 </tr>
+                <% counter += 1 %>
             <% end %>
         <% end %>
     </tbody>

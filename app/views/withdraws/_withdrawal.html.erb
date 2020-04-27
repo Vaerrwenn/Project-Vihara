@@ -1,0 +1,14 @@
+<% @withdraw.each do |w| %>
+<tr>
+    <td><%= w.created_at.strftime('%d-%b-%Y') %></td>
+    <td><b><%= w.receipt_no %></b></td>
+    <td><%= w.withdrawal_type %></td>
+    <td><%= w.currency %> <%= number_to_currency(w.value, precision: 2, delimiter: ".", unit: "", separator: ",") %></td>
+    <td><%= w.desc %></td>
+    <% conf_msg = "Are you sure to delete data: " + w.receipt_no + "?" %>
+    <td class="text-center"><%= link_to member_withdraw_path(@member.id, w.id), method: :delete,
+    class: 'btn btn-sm btn-danger', data: { confirm: conf_msg } do %> 
+        <i class="fas fa-trash"></i>
+    <% end %> </td>
+</tr>
+<% end %>

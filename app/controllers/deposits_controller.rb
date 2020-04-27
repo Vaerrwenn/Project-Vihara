@@ -1,9 +1,4 @@
 class DepositsController < ApplicationController
-
-    def new
-        @member = Member.find(params[:member_id])
-        # render partial: 'deposits/addDepositModal'
-    end
     
     def create
         @member = Member.find(params[:member_id])
@@ -13,7 +8,7 @@ class DepositsController < ApplicationController
             flash[:success] = "Data berhasil disimpan!"
             redirect_to member_path(@member)
         else
-            flash[:danger] = "Terjadi kesalahan ketika menyimpan data Deposit. Silahkan dicoba lagi."
+            flash[:danger] = "Terjadi kesalahan ketika menyimpan data Pemasukan. Silahkan dicoba lagi."
             redirect_to member_path(@member)
         end
     end
@@ -23,15 +18,13 @@ class DepositsController < ApplicationController
         @deposit = @member.deposits.find(params[:id])
 
         if @deposit.destroy
-            flash[:success] = 'Data Deposit berhasil dihapus.'
+            flash[:success] = 'Data Pemasukan berhasil dihapus.'
             redirect_to member_path(@member)
         else
-            flash[:danger] = 'Data Deposit tidak dapat dihapus.'
+            flash[:danger] = 'Data Pemasukan tidak dapat dihapus.'
             redirect_to member_path(@member)
         end
     end
-    
-    
     
     private
     def deposit_params
