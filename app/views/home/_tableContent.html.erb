@@ -1,3 +1,33 @@
-<div class="container">
-
-</div>
+<table class="table table-sm table-custom table-bordered" id="homeTable" style="width: 100%">
+    <thead class="thead">
+        <tr>
+            <th style="width: 10%">Tanggal</th>
+            <th style="width: 22%">Nama</th>
+            <th style="width: 11%">Cetya</th>
+            <th style="width: 10%" class="text-center">No. Kwitansi</th>
+            <th style="width: 15%">Jenis Transaksi</th>
+            <th style="width: 20%">Jenis Tabungan</th>
+            <th style="width: 40%">Jumlah</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if @results %>
+            <% @results.each do |t| %>
+                <tr>
+                    <td><%= t["created_at"].strftime('%d-%b-%Y') %></td>
+                    <td><%= t["name"] %></td>
+                    <td><%= t["cetya"] %></td>
+                    <td class="text-center"><b><%= t["receipt_no"] %></b></td>
+                    <td><%= t["withdraw_or_deposit"] %></td>
+                    <td><%= t["transaction_type"] %></td>
+                    <td colspan="2"><%= t["currency"] %> <%= number_to_currency(t["money_value"], precision: 2, delimiter: ".", unit: "", separator: ",")%></td>
+                </tr>
+            <% end %>
+        <% else %>
+            <tr>
+                <td colspan="7">Tidak ada data transaksi</td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

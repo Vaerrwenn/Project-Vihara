@@ -1,0 +1,32 @@
+<div class="row">
+        <strong>Data Transaksi:</strong>
+    </div>
+    <div class="row">
+        <%= link_to new_member_transaction_path(@member), class: "btn btn-sm btn-primary", data: { toggle: "modal", target: "#newTrans" } do %>
+            <i class="fas fa-plus"></i> Transaksi
+        <% end %>
+    </div>
+    <div class="row">
+        <table class="table table-sm table-custom table-bordered" id="transactionTable">
+            <thead class="thead">
+                <tr>
+                    <th scope="col" style="width: 10%" class="text-center">Tanggal</th>
+                    <th scope="col" style="width: 10%" class="text-center">No. Kwitansi</th>
+                    <th scope="col" style="width: 13%" class="text-center">Jenis Transaksi</th>
+                    <th scope="col" style="width: 15%">Jenis Tabungan</th>
+                    <th scope="col" style="width: 20%">Jumlah</th>
+                    <th scope="col" style="width: 40%">Deskripsi</th>
+                    <th scope="col" style="width: 10%">Hapus</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if @member.transactions.exists? %>
+                    <%= render 'transactions/transactionTable' %>
+                <% else %>
+                    <tr>
+                        <td colspan="7">Tidak ada data.</td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>

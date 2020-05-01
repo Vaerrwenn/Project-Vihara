@@ -27,7 +27,11 @@ ul li a.nav-link{
  }
 
  .table-custom thead{
-   background-color: #3f72af;
+    background-color: #112d4e;
+ }
+
+ .table-custom thead th{
+   background-color: #112d4e;
    color: white;
  }
 
@@ -36,15 +40,15 @@ ul li a.nav-link{
  }
 
  .table-bordered{
-    border-color: #112d4e;
+    border-color: #000000;
  }
 
  .table-bordered > thead > tr > th{
-   border-color: #112d4e;
+   border-color: #000000;
  }
 
  .table-bordered > tbody > tr > td{
-   border-color: #112d4e;
+   border-color: #000000;
 }
 
  a {
@@ -71,18 +75,30 @@ ul li a.nav-link{
    overflow-y: scroll;
 }
 
-#depositTable{
+#indexTable thead th{
+   position: sticky;
+   top: 0;
+}
+
+#transactionTable{
    display: block;
-   height: 190px;
+   height: 276px;
    overflow-y: scroll;
 }
 
-#withdrawTable{
+#transactionTable thead th{
+   position: sticky;
+   top: 0;
+}
+
+#homeTable{
    display: block;
-   height: 190px;
+   height: 430px;
    overflow-y: scroll;
 }
 
-
-
+#homeTable thead th{
+   position: sticky;
+   top: 0;
+}
 

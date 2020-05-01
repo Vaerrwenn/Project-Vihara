@@ -2,18 +2,20 @@
 
 one:
   receipt_no: MyString
-  withdrawal_type: MyString
+  withdraw_or_deposit: MyString
+  transaction_type: MyString
   currency: MyString
-  value: 9.99
+  money_value: 9.99
   desc: MyString
   submitted_by: MyString
   member: one
 
 two:
   receipt_no: MyString
-  withdrawal_type: MyString
+  withdraw_or_deposit: MyString
+  transaction_type: MyString
   currency: MyString
-  value: 9.99
+  money_value: 9.99
   desc: MyString
   submitted_by: MyString
   member: two
