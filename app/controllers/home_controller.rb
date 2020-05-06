@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+
+
   def index
     sql = "select t.*, m.name, m.cetya from transactions t 
     JOIN members m ON t.member_id = m.id order by created_at DESC"

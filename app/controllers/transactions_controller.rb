@@ -1,4 +1,6 @@
 class TransactionsController < ApplicationController
+    before_action :authenticate_user!
+    
     def create
         @member = Member.find(params[:member_id])
         @transaction = @member.transactions.create(transaction_params)

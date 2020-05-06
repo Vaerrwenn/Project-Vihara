@@ -1,12 +1,37 @@
 // Use this colour palette https://colorhunt.co/palette/22272
+html{
+   height: 100%;
+}
+
 body{
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f9f7f7;
     color: #0e0e0e;
+    height: 100%;
  }
 
 ul li a.nav-link{
     color: #ffffff !important;
+ }
+
+ #identity a{
+    color: #ffffff !important;
+    text-decoration: none;
+ }
+
+ #signOut a{
+   color: #ffffff !important;
+   text-decoration: none;
+ }
+
+ #signIn a{
+    color: #ffffff !important;
+    text-decoration: none;
+ }
+
+ #signUp a{
+   color: #ffffff !important;
+   text-decoration: none;
  }
 
  .active{
