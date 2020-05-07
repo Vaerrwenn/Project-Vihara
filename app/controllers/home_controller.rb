@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-
+  before_action :authenticate_user!
 
   def index
     sql = "select t.*, m.name, m.cetya from transactions t 
