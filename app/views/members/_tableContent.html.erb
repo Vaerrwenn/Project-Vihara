@@ -7,7 +7,7 @@
     <% end %>
 </div>
 <div class="row">
- <table class="table table-sm table-custom table-bordered" id="indexTable">
+ <table class="table table-sm table-custom table-bordered" id="members-datatable" data-source="<%= members_path(format: :json) %>">
     <thead class="thead">
         <tr>
             <th scope="col" style="width: 2%" class="text-center">No.</th>
@@ -16,23 +16,6 @@
         </tr>
     </thead>
     <tbody>
-        <% counter = 0 %>
-        <% if !@members.exists? %>
-        <tr>
-            <td colspan="4">Data umat tidak ditemukan.</td>
-        </tr>
-        <% else %>
-            <% counter = 1 %>
-            <% @members.each do |m| %>
-                <tr>
-                    <td class="text-center"><%= counter %></td>
-                    <td><%= link_to member_path(m) do %><b><%= m.name %></b><% end %></td>
-                    <td><%= m.cetya %></td>
-                </tr>
-                <% counter += 1 %>
-            <% end %>
-        <% end %>
     </tbody>
  </table>
 </div>
-

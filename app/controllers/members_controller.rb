@@ -1,9 +1,14 @@
+# First of all, the codes you're about to see are probably not using the best practice method out there
+# But hey, they get things work.
 class MembersController < ApplicationController
     before_action :authenticate_user!
     before_action { flash.clear }
+    
     def index
-      @members = Member.all.order(:name)
-
+      respond_to do |format|
+        format.html
+        format.json { render json: MemberDatatable.new(params) }
+      end
     end
 
     def show

@@ -2,6 +2,7 @@ class HomeController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    # Not sure if this is a good practice but it get things work
     sql = "select t.*, m.name, m.cetya from transactions t 
     JOIN members m ON t.member_id = m.id order by created_at DESC"
     @results = ActiveRecord::Base.connection.exec_query(sql)
