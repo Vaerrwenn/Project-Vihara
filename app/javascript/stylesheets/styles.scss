@@ -94,26 +94,10 @@ ul li a.nav-link{
    color: #74141a;
 }
 
-#indexTable{
-   display: block;
-   height: 430px;
-   overflow-y: scroll;
-}
-
-#indexTable thead th{
-   position: sticky;
-   top: 0;
-}
-
 #transactionTable{
    display: block;
    height: 276px;
    overflow-y: scroll;
-}
-
-#transactionTable thead th{
-   position: sticky;
-   top: 0;
 }
 
 #homeTable{
@@ -122,8 +106,10 @@ ul li a.nav-link{
    overflow-y: scroll;
 }
 
-#homeTable thead th{
-   position: sticky;
-   top: 0;
+#members-datatable_wrapper{
+   width: 100%;
 }
 
+#members-datatable tbody tr td a{
+   font-weight: bold;
+}

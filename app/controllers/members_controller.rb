@@ -7,7 +7,7 @@ class MembersController < ApplicationController
     def index
       respond_to do |format|
         format.html
-        format.json { render json: MemberDatatable.new(params) }
+        format.json { render json: MemberDatatable.new(params, view_context: view_context) }
       end
     end
 

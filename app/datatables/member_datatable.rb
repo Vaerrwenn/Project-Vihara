@@ -1,15 +1,16 @@
 class MemberDatatable < AjaxDatatablesRails::ActiveRecord
   extend Forwardable
 
-  def_delegator :@view, :link_to
+  def_delegators :@view, :link_to, :member_path
+
+  def initialize(params, opts = {})
+    @view = opts[:view_context]
+    super
+  end
 
   def view_columns
-    # Declare strings in this format: ModelName.column_name
-    # or in aliased_join_table.column_name format
     @view_columns ||= {
-      # id: { source: "User.id", cond: :eq },
-      # name: { source: "User.name", cond: :like }
-      name: { source: "Member.name", cond: :like, searchable: true, orderable: true},
+      name: { source: "Member.name", cond: :like, searchable: true},
       cetya: { source: "Member.cetya", cond: :like, searchable: true, orderable: true}
     }
   end
@@ -29,7 +30,7 @@ class MemberDatatable < AjaxDatatablesRails::ActiveRecord
   def get_raw_records
     # insert query here
     # User.all
-    Member.all.order(:name)
+    Member.all
   end
 
 end

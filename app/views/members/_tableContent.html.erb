@@ -1,18 +1,14 @@
 <div class="row">
-    <b>SEARCH PLACEHOLDER</b>
-</div>
-<div class="row">
     <%= link_to new_member_path, class: "btn btn-primary" do %> 
         <i class="fas fa-plus"></i> Tambah Data Umat
     <% end %>
 </div>
 <div class="row">
- <table class="table table-sm table-custom table-bordered" id="members-datatable" data-source="<%= members_path(format: :json) %>">
+ <table class="table table-sm table-custom table-bordered" id="members-datatable" data-source="<%= members_path(format: :json) %>" style="width: 100%;">
     <thead class="thead">
         <tr>
-            <th scope="col" style="width: 2%" class="text-center">No.</th>
-            <th scope="col" style="width: 40%">Nama</th>
-            <th scope="col" style="width: 40%">Cetya</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Cetya</th>
         </tr>
     </thead>
     <tbody>

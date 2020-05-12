@@ -4,6 +4,7 @@ class TransactionsController < ApplicationController
     def create
         @member = Member.find(params[:member_id])
         @transaction = @member.transactions.create(transaction_params)
+        @transaction.submitted_by = current_user.name
 
         if @transaction.save
             flash[:success] = "Data Transaksi berhasil disimpan!"

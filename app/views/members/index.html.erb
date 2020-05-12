@@ -5,7 +5,7 @@
 
 <script>
 jQuery(document).ready(function() {
-  $('#members-datatable').dataTable({
+  $('#members-datatable').DataTable({
     "processing": true,
     "serverSide": true,
     "ajax": {
@@ -16,9 +16,10 @@ jQuery(document).ready(function() {
       {"data": "name"},
       {"data": "cetya"},
     ]
-    // pagingType is optional, if you want full pagination controls.
-    // Check dataTables documentation to learn more about
-    // available options.
+    // dom: 'Bfrtip',
+    // buttons: [
+    //         'copyHtml5', 'excelHtml5', 'print'
+    // ]
   });
 });
 </script>

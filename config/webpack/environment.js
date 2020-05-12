@@ -1,6 +1,7 @@
 const { environment } = require('@rails/webpacker')
-const datatables = require('./loaders/datatables');
+
 const webpack = require('webpack');
+const datatables = require('./loaders/datatables');
 
 environment.plugins.append(
     'Provide',
@@ -10,6 +11,14 @@ environment.plugins.append(
     Popper: ['popper.js', 'default']
     })
 );
+
+environment.loaders.append('expose', {
+    test: require.resolve('jquery'),
+    use: [
+      { loader: 'expose-loader', options: '$' },
+      { loader: 'expose-loader', options: 'jQuery' }
+    ]
+})
 
 environment.loaders.append('datatables', datatables)
 
