@@ -30,6 +30,6 @@ class TransactionsController < ApplicationController
 
     private
     def transaction_params
-        params.require(:transaction).permit(:receipt_no, :withdraw_or_deposit, :transaction_type, :currency, :money_value, :desc)
+        params.require(:transaction).permit(:receipt_no, :transaction_type, :saving_type, :currency, :money_value, :desc)
     end
 end

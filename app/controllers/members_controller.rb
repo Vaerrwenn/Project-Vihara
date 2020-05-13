@@ -57,6 +57,14 @@ class MembersController < ApplicationController
       end
     end
     
+    def home_index
+      @members = Member.all
+      @transactions = Transaction.all
+
+      @results = Transaction.select("transactions.*, members.*").joins("JOIN members ON transactions.member_id = members.id")
+
+      render "home/index"
+    end
     
     private
 

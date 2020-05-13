@@ -1,8 +1,8 @@
 <%= simple_form_for [@member, @member.transactions.build] do |f| %>
 <div class="modal-body">
-    <%= f.input :withdraw_or_deposit, label: 'Jenis Transaksi', error: "Jenis Transaksi harus dipilih", as: :select,
+    <%= f.input :transaction_type, label: 'Jenis Transaksi', error: "Jenis Transaksi harus dipilih", as: :select,
     collection: [['Pemasukan', 'Pemasukan'], ['Pengeluaran', 'Pengeluaran']] %>
-    <%= f.input :transaction_type, label: 'Jenis Tabungan', error: "Jenis Tabungan harus dipilih!", as: :select,
+    <%= f.input :saving_type, label: 'Jenis Tabungan', error: "Jenis Tabungan harus dipilih!", as: :select,
     collection: [['Tabungan Kegiatan', 'Tabungan Kegiatan'], ['Tabungan Tozan', 'Tabungan Tozan']] %>
     <%= f.input :receipt_no, label: 'Nomor Kwitansi', error: 'Nomor Kwitansi harus diisi!' %>
     <%= f.input :currency, label: 'Mata Uang', error: "Mata Uang harus dipilih!", as: :select,

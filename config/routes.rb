@@ -6,13 +6,11 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { sessions: 'users/sessions' }
 
-  get 'home/index'
-
   resources :members do
     resources :transactions
   end
 
-  resources :homes do
+  resources :home do
     resources :members
   end
 

@@ -10,17 +10,14 @@ class MemberDatatable < AjaxDatatablesRails::ActiveRecord
 
   def view_columns
     @view_columns ||= {
-      name: { source: "Member.name", cond: :like, searchable: true},
-      cetya: { source: "Member.cetya", cond: :like, searchable: true, orderable: true}
+      name: { source: "Member.name" },
+      cetya: { source: "Member.cetya", cond: :like, searchable: true, orderable: true} # Created this to help next dev to understand the syntax
     }
   end
 
   def data
     records.map do |record|
       {
-        # example:
-        # id: record.id,
-        # name: record.name
         name: link_to(record.name, member_path(record)),
         cetya: record.cetya
       }
@@ -28,8 +25,6 @@ class MemberDatatable < AjaxDatatablesRails::ActiveRecord
   end
 
   def get_raw_records
-    # insert query here
-    # User.all
     Member.all
   end
 

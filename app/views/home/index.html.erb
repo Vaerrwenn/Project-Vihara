@@ -1,6 +1,30 @@
 <%= render  "layouts/header" %>
 <div class="container">
     <div class="row">
-        <%= render  "tableContent" %>
+        <%= render  "home/tableContent" %>
     </div>
 </div>
+
+<script>
+$(document).ready(function() {
+//   $.fn.dataTable.render.moment( 'DD-MMM-YYYY' );
+
+  $('#home-datatable').DataTable({
+    "processing": true,
+    "serverSide": true,
+    "ajax": {
+      "url": $('#home-datatable').data('source')
+    },
+    "pagingType": "full_numbers",
+    "columns": [
+      {"data": "created_at"},
+      {"data": "name"},
+      {"data": "cetya"},
+      {"data": "receipt_no"},
+      {"data": "transaction_type"},
+      {"data": "saving_type"},
+      {"data": "money_value"}
+    ]
+  });
+});
+</script>

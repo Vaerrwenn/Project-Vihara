@@ -2,8 +2,8 @@
 <tr>
     <td class="text-center"><%= t.created_at.strftime('%d-%b-%Y') %></td>
     <td class="text-center"><b><%= t.receipt_no %></b></td>
-    <td class="text-center"><%= t.withdraw_or_deposit %></td>
-    <td><%= t.transaction_type %> </td>
+    <td class="text-center"><%= t.transaction_type %></td>
+    <td><%= t.saving_type %> </td>
     <td><%= t.currency %> <%= number_to_currency(t.money_value, precision: 2, delimiter: ".", unit: "", separator: ",") %></td>
     <td><%= t.desc %></td>
     <% conf_msg = "Are you sure to delete data: " + t.receipt_no + "?" %>
