@@ -1,5 +1,10 @@
 class HomeController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:datatable]
   before_action :authenticate_user!
+
+  def datatable
+    render json: HomeDatatable.new(params, view_context: view_context)
+  end
 
   def index
     # Not sure if this is a good practice but it get things work
@@ -10,10 +15,12 @@ class HomeController < ApplicationController
     # FINALLY FOUND THE CORRECT WAY YAYYYYY
     # @results = Transaction.select("transactions.*, members.*")
     #                       .joins("JOIN members ON transactions.member_id = members.id")
-    respond_to do |format|
-      format.html
-      format.json { render json: HomeDatatable.new(params, view_context: view_context) }
-    end
+
+    # This code is not being used anymore but I'll just keep it here for future references.
+    # respond_to do |format|
+    #   format.html
+    #   format.json { render json: HomeDatatable.new(params, view_context: view_context) }
+    # end
   end
 end
 # integrate Bootstrap 4 FA5 with RoR6

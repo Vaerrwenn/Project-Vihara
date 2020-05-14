@@ -9,14 +9,17 @@ jQuery(document).ready(function() {
     "processing": true,
     "serverSide": true,
     "ajax": {
-      "url": $('#members-datatable').data('source')
+      "url": $('#members-datatable').data('source'),
+      type: 'POST'
     },
     "pagingType": "full_numbers",
     "columns": [
-      {"data": "name"},
+      {"data": "name", "render": function (data){
+        return '<b>' + data + "</b>";
+      }},
       {"data": "cetya"},
-    ]
-    // dom: 'Bfrtip',
+    ],
+    dom: '<"top"fr><t><"bottom"pli>',
     // buttons: [
     //         'copyHtml5', 'excelHtml5', 'print'
     // ]

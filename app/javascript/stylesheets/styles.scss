@@ -110,6 +110,19 @@ ul li a.nav-link{
    width: 100%;
 }
 
-#members-datatable tbody tr td a{
-   font-weight: bold;
+#home-datatable_wrapper{
+   width: 100%;
+}
+
+#home-datatable_filter{
+   float: left !important;
+}
+
+#members-datatable_filter{
+   float: left !important;
+}
+
+.dt-buttons{
+   float: right !important;
+   margin-bottom: 10px;
 }

@@ -1,7 +1,7 @@
 class HomeDatatable < AjaxDatatablesRails::ActiveRecord
   extend Forwardable
 
-  def_delegators :@view, :number_to_currency
+  def_delegators :@view, :number_with_delimiter
 
   def initialize(params, opts = {})
     @view = opts[:view_context]
@@ -33,7 +33,7 @@ class HomeDatatable < AjaxDatatablesRails::ActiveRecord
         transaction_type:   r.transaction_type,
         saving_type:        r.saving_type,
         currency:           r.currency,
-        money_value:        r.money_value
+        money_value:        number_with_delimiter(r.money_value, delimiter: ".", separator: ",")
       }
     end
   end

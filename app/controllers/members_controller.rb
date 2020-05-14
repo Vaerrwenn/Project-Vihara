@@ -1,14 +1,20 @@
 # First of all, the codes you're about to see are probably not using the best practice method out there
 # But hey, they get things work.
 class MembersController < ApplicationController
+    skip_before_action :verify_authenticity_token, only: [:datatable]
     before_action :authenticate_user!
-    before_action { flash.clear }
+    before_action { flash.clear } 
     
     def index
-      respond_to do |format|
-        format.html
-        format.json { render json: MemberDatatable.new(params, view_context: view_context) }
-      end
+      # Not being used anymore but I'll just keep it. Will delete if the site's loading slowly.
+      # respond_to do |format|
+      #   format.html
+      #   format.json { render json: MemberDatatable.new(params, view_context: view_context) }
+      # end
+    end
+
+    def datatable
+      render json: MemberDatatable.new(params, view_context: view_context)
     end
 
     def show

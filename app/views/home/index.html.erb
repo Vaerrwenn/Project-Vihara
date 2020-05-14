@@ -9,22 +9,73 @@
 $(document).ready(function() {
 //   $.fn.dataTable.render.moment( 'DD-MMM-YYYY' );
 
-  $('#home-datatable').DataTable({
+  var iTable = $('#home-datatable').DataTable({
     "processing": true,
-    "serverSide": true,
+    "serverSide": true,    
     "ajax": {
-      "url": $('#home-datatable').data('source')
+      "url": $('#home-datatable').data('source'),
+      type: 'POST'
     },
     "pagingType": "full_numbers",
     "columns": [
-      {"data": "created_at"},
+      {"data": "created_at",
+       "render": function (data) {
+          const date = new Date(data);
+          const month = date.toLocaleString('id', { month: 'short' })
+          return (date.getDate()) + "-" + month + "-"  + date.getFullYear();
+        }
+      },
       {"data": "name"},
       {"data": "cetya"},
-      {"data": "receipt_no"},
+      {"data": "receipt_no",
+       "render": function (data) {
+         return '<p class="text-center"><b>' + data + '</b></p>'
+       }
+      },
       {"data": "transaction_type"},
       {"data": "saving_type"},
-      {"data": "money_value"}
+      {"data": "currency"}
+    ],
+    "columnDefs": [
+      {
+        "targets": 6,
+        "render": function (data, type, row) {
+          const money = " " + row.money_value
+          return data +  money;
+        }
+      }
+    ],
+    "order": [[0, "desc"]],
+    dom: '<"top"Bfr><t><"bottom"pli>',
+    buttons: [
+      {
+        extend: 'copy',
+        exportOptions: {
+          columns: ':visible'
+        }
+      },
+      {
+        extend: 'excel',
+        exportOptions: {
+          columns: ':visible'
+        }
+      },
+      {
+        extend: 'print',
+        exportOptions: {
+          columns: ':visible'
+        }
+      }
     ]
   });
+
+  yadcf.init(iTable, [
+    {
+      column_number: 0,
+      filter_type: "range_date",
+      date_format: "dd-mm-yyyy",
+      filter_delay: 500
+    }
+  ]);
 });
 </script>

@@ -5,6 +5,7 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require datatables
+//= require yadcf
 import 'core-js/stable'
 import 'regenerator-runtime/runtime'
 // import jQuery from 'jquery'
@@ -29,6 +30,7 @@ import "bootstrap";
 import "../stylesheets/application";
 import "./custom"
 import "@fortawesome/fontawesome-free/js/all";
+import "./jquery.dataTables.yadcf"
 
 // THESE CODES ARE NOT WORKING. I DON'T KNOW WHY.
 // import 'datatables.net-dt/css/jquery.dataTables.css'

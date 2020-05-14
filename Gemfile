@@ -27,6 +27,8 @@ gem 'jquery-rails'
 gem 'simple_form'
 gem 'devise'
 gem 'ajax-datatables-rails'
+# gem 'momentjs-rails' THought need this. Apparently not
+gem 'yajl-ruby', require: 'yajl'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
