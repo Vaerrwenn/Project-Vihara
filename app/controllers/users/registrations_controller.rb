@@ -2,7 +2,7 @@
 # NOTE: I didn't write this clean code. It's from DEVISE.
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  before_action ->{authenticate_user!(force: true)}
+  # before_action ->{authenticate_user!(force: true)}
   skip_before_action :require_no_authentication, only: [:new, :create] # Idk if this is not needed because I forced the above, but it just works.
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
