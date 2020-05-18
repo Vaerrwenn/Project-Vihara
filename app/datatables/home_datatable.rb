@@ -11,7 +11,7 @@ class HomeDatatable < AjaxDatatablesRails::ActiveRecord
   def view_columns
     # Mapping from the Database/Model
     @view_columns ||= {
-      created_at:        { source: "Transaction.created_at", cond: :date_range, searchable: false },
+      transaction_date:  { source: "Transaction.transaction_date" },
       name:              { source: "Member.name" },
       cetya:             { source: "Member.cetya" },
       receipt_no:        { source: "Transaction.receipt_no" },
@@ -26,7 +26,7 @@ class HomeDatatable < AjaxDatatablesRails::ActiveRecord
     records.map do |r|
       {
         # For passing the value to the View
-        created_at:         r.created_at,
+        transaction_date:   r.transaction_date,
         name:               r.name,
         cetya:              r.cetya,
         receipt_no:         r.receipt_no,

@@ -30,17 +30,7 @@ import "bootstrap";
 import "../stylesheets/application";
 import "./custom"
 import "@fortawesome/fontawesome-free/js/all";
-import "./jquery.dataTables.yadcf"
 
 // THESE CODES ARE NOT WORKING. I DON'T KNOW WHY.
 // import 'datatables.net-dt/css/jquery.dataTables.css'
 // import 'datatables.net-select-dt/css/select.dataTables.css'
-
-// require('jszip');
-// require('datatables.net-bs4')(window, $);
-// require('datatables.net-buttons-bs4')(window, $);
-// require('datatables.net-buttons/js/buttons.html5.js')(window, $);
-// require('datatables.net-fixedheader-bs4')(window, $);
-// require('datatables.net-responsive-bs4')(window, $);
-// require('datatables.net-searchpanes-bs4')(window, $);
-// require('datatables.net-select-bs4')(window, $);

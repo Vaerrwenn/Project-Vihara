@@ -3,7 +3,6 @@
 class MembersController < ApplicationController
     skip_before_action :verify_authenticity_token, only: [:datatable]
     before_action :authenticate_user!
-    before_action { flash.clear } 
     
     def index
       # Not being used anymore but I'll just keep it. Will delete if the site's loading slowly.
@@ -19,7 +18,7 @@ class MembersController < ApplicationController
 
     def show
       @member = Member.find(params[:id])
-      @transaction = @member.transactions.all.order(created_at: :desc)
+      @transaction = @member.transactions.all.order(transaction_date: :desc)
     end
 
     def new

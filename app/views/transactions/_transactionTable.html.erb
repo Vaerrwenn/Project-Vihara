@@ -1,6 +1,6 @@
 <% @transaction.each do |t| %>
 <tr>
-    <td class="text-center"><%= t.created_at.strftime('%d-%b-%Y') %></td>
+    <td class="text-center"><%= t.transaction_date.to_s() %></td>
     <td class="text-center"><b><%= t.receipt_no %></b></td>
     <td class="text-center"><%= t.transaction_type %></td>
     <td><%= t.saving_type %> </td>

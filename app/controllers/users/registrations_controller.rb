@@ -2,14 +2,20 @@
 # NOTE: I didn't write this clean code. It's from DEVISE.
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  before_action ->{authenticate_user!(force: true)}
-  skip_before_action :require_no_authentication, only: [:new, :create] # Idk if this is not needed because I forced the above, but it just works.
+  # before_action ->{authenticate_user!(force: true)}
+  # skip_before_action :require_no_authentication, only: [:new, :create]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
   def new
-    super
+    if User.count < 2 
+      flash.clear
+      super
+    else
+      flash[:danger] = "Jumlah user telah melebihi batas!"
+      redirect_to new_user_session_path
+    end
   end
 
   # POST /resource
