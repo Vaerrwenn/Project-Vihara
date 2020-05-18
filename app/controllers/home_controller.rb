@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:datatable]
   before_action :authenticate_user!
+  before_action { flash.clear }
 
   def datatable
     render json: HomeDatatable.new(params, view_context: view_context)
