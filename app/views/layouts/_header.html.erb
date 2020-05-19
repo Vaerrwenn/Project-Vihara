@@ -16,9 +16,11 @@
                 <li class="nav-item">
                     <div class="nav-link" id="identity"><%= link_to edit_user_registration_path do %>Halo, <%= current_user.name %>!<% end %> </div>
                 </li>
-                <li class="nav-item">
-                    <div class="nav-link" id="signUp"><%= link_to  "Daftar Pengguna Baru", new_user_registration_path %></div>
-                </li>
+                <% if User.count < 2 %>
+                    <li class="nav-item">
+                        <div class="nav-link" id="signUp"><%= link_to  "Daftar Pengguna Baru", new_user_registration_path %></div>
+                    </li>
+                <% end %>
                 <li class="nav-item">
                     <div class="nav-link" id="signOut"><%= link_to  "Keluar", destroy_user_session_path, method: :delete %></div>
                 </li>
