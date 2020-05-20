@@ -17,12 +17,16 @@ jQuery(document).ready(function() {
       {"data": "name", "render": function (data){
         return '<b>' + data + "</b>";
       }},
-      {"data": "cetya"},
+      {"data": "account_number"},
+      {"data": "cetya"}
     ],
     dom: '<"top"fr><t><"bottom"pli>',
-    // buttons: [
-    //         'copyHtml5', 'excelHtml5', 'print'
-    // ]
+    "columnDefs": [
+      {
+        className: "account_num",
+        "targets": [1] 
+      }
+    ]
   });
 });
 </script>

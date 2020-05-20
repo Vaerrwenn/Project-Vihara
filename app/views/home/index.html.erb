@@ -19,24 +19,34 @@ $(document).ready(function() {
     "pagingType": "full_numbers",
     "columns": [
       {"data": "transaction_date"},
-      {"data": "name"},
-      {"data": "cetya"},
       {"data": "receipt_no",
        "render": function (data) {
-         return '<p class="text-center"><b>' + data + '</b></p>'
+         return '<b>' + data + '</b>'
        }
       },
+      {"data": "name"},
+      {"data": "account_number"},
+      {"data": "cetya"},
       {"data": "transaction_type"},
       {"data": "saving_type"},
-      {"data": "currency"}
+      {"data": "currency"},
+      {"data": "desc"}
     ],
     "columnDefs": [
       {
-        "targets": 6,
+        "targets": 7,
         "render": function (data, type, row) {
           const money = " " + row.money_value
           return data +  money;
         }
+      },
+      {
+        className: "receipt_no",
+        "targets": 1
+      },
+      {
+        className: "account_num",
+        "targets": 3
       }
     ],
     "order": [[0, "desc"]],
@@ -62,14 +72,5 @@ $(document).ready(function() {
       }
     ]
   });
-
-  yadcf.init(iTable, [
-    {
-      column_number: 0,
-      filter_type: "range_date",
-      date_format: "dd-mm-yyyy",
-      filter_delay: 500
-    }
-  ]);
 });
 </script>
