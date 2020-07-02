@@ -1,4 +1,4 @@
-# Project Pencatatan Keuangan Vihara
+# Project Treasury Transaction Report
 Web Application that could save transaction details that happened in Vihara
 
 ## Requirements
